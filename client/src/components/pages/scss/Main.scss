@@ -1,0 +1,20 @@
+body{
+    background-color: lightgrey;
+}
+
+.researchBarProcedure{
+    display:flex;
+    justify-content:center;
+    margin-top:5vh;
+}
+
+.procedure{
+    display:flex;
+    flex: auto;
+    margin-top:5vh;
+    margin-left:5vh;
+
+    .showProcedure{
+        margin-left:10vh;
+    }
+}

@@ -1,0 +1,17 @@
+.titlebar, .editor{
+    display:flex;
+    justify-content:center;
+    margin-top:5vh;
+}
+
+.categorie, .modification{
+    display:flex;
+    justify-content:right;
+    margin-top:1vh;
+    margin-right:4vh;
+}
+
+.ck{
+    height:60vh;
+    width:150vh;
+}

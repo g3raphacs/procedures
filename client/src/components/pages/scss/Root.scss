@@ -1,0 +1,23 @@
+
+
+.main{
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    height:70vh;
+    .button{
+        display:flex;
+        justify-content:center;
+    }
+    .research{
+        .researchSentence{
+            display:flex;
+            justify-content:center;
+        }
+        .researchBar{
+            display:flex;
+            justify-content:center;
+        }
+    }
+}
