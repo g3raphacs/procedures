@@ -8,8 +8,13 @@ require_once "fonction/tokenCreation.php";
 $login = $_POST['login'];
 $password = $_POST['password'];
 
-echo json_encode(connexion($login, $password));
+$connexionToken = [
+  "connexion" => connexion($login, $password),
+  "token" => tokenCreation($login)
+];
 
 if (connexion($login, $password)) {
-    echo '.' .tokenCreation($login);
+    echo json_encode($connexionToken);
+} else {
+    echo json_encode(connexion($login, $password));
 }
