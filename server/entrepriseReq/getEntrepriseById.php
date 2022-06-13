@@ -3,4 +3,6 @@
 require_once "../modele/entrepriseDB.php";
 require_once "../jwt/auth.php";
 
-echo json_encode(getEntrepriseById($_POST['id']));
+$getEntrepriseById = json_decode($_POST['id'],true);
+
+echo json_encode(getEntrepriseById($getEntrepriseById['id']));

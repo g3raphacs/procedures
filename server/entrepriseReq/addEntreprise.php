@@ -3,6 +3,7 @@
 require_once "../modele/entrepriseDB.php";
 require_once "../jwt/auth.php";
 
-$addEntrpeirse = json_decode($_POST['nom'], true );
+$addEntreprise = json_decode($_POST['addEntreprise'], true );
 
-echo addEntreprise($addEntrpeirse['nom']);
+echo addEntreprise($addEntreprise['nom']);
+
