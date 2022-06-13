@@ -16,5 +16,7 @@ $connexionToken = [
 if (connexion($login, $password)) {
     echo json_encode($connexionToken);
 } else {
-    echo json_encode(connexion($login, $password));
+    echo json_encode([
+        "connexion" => connexion($login, $password)
+    ]);
 }
