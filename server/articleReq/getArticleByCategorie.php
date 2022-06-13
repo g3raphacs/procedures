@@ -3,4 +3,6 @@
 require_once "../modele/articleDB.php";
 require_once "../jwt/auth.php";
 
-echo json_encode(getArticleByCategorie($_POST['categorie']));
+$getArticleByCategorie = json_decode($_POST['categorie'], true);
+
+echo json_encode(getArticleByCategorie($getArticleByCategorie['categorie']));
