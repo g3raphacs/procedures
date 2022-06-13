@@ -3,4 +3,6 @@
 require_once "../modele/categorieDB.php";
 require_once "../jwt/auth.php";
 
-echo deleteCategorie($_POST['id']);
+$deleteCategorie = json_decode($_POST['id'], true);
+
+echo deleteCategorie($deleteCategorie['id']);

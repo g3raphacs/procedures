@@ -5,11 +5,20 @@ require_once "jwt/includes/config.php";
 require_once "classes/JWT.php";
 require_once "fonction/tokenCreation.php";
 
-$login = $_POST['login'];
-$password = $_POST['password'];
+$connexion = json_decode($_POST['connexion'], true);
 
-echo json_encode(connexion($login, $password));
+$login = $connexion['login'];
+$password = $connexion['password'];
+
+$connexionToken = [
+  "connexion" => connexion($login, $password),
+  "token" => tokenCreation($login)
+];
 
 if (connexion($login, $password)) {
-    echo '.' .tokenCreation($login);
+    echo json_encode($connexionToken);
+} else {
+    echo json_encode([
+        "connexion" => connexion($login, $password)
+    ]);
 }

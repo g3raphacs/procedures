@@ -3,4 +3,6 @@
 require_once "../modele/articleDB.php";
 require_once "../jwt/auth.php";
 
-echo addArticle($_POST['nom'], $_POST['texte'], $_POST['categorie']);
+$addArticle = json_decode($_POST['addArticle'], true);
+
+echo addArticle($addArticle['nom'], $addArticle['texte'], $addArticle['categorie']);

@@ -2,6 +2,8 @@
 
 require_once "../modele/utilisateurDB.php";
 
-$pw_hash = password_hash($_POST['password'], PASSWORD_DEFAULT);
+$addUtilisateur = json_decode($_POST['addUtilisateur'], true);
 
-echo addUtilisateur($_POST['login'],$pw_hash);
+$pw_hash = password_hash($addUtilisateur['password'], PASSWORD_DEFAULT);
+
+echo addUtilisateur($addUtilisateur['login'],$pw_hash);

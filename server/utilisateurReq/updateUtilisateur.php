@@ -3,6 +3,8 @@
 require_once "../modele/utilisateurDB.php";
 require_once "../jwt/auth.php";
 
-$pw_hash = password_hash($_POST['password'], PASSWORD_DEFAULT);
+$updateUtilisateur = json_decode($_POST['updateUtilisateur'],true);
 
-echo updateUtilisateur($_POST['id'], $_POST['login'], $pw_hash);
+$pw_hash = password_hash($updateUtilisateur['password'], PASSWORD_DEFAULT);
+
+echo updateUtilisateur($updateUtilisateur['id'], $updateUtilisateur['login'], $pw_hash);
