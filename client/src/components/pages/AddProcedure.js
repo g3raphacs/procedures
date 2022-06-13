@@ -19,7 +19,7 @@ const AddProcedure=(props)=>{
                     <AddCategorie />
                 </div>
                 <div class='modification'>
-                    <Modification/>
+                    <Modification annuler={props.annuler}/>
                 </div>
             </div>
         </div>

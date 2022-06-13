@@ -1,6 +1,6 @@
 <?php
+
 require_once "../modele/articleDB.php";
 require_once "../jwt/auth.php";
 
-echo json_encode(getAllArticle());
-
+echo addArticle($_POST['nom'], $_POST['texte'], $_POST['categorie']);

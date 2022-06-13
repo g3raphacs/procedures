@@ -10,10 +10,8 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path='/' element={<Main />} />
-        <Route path='addprocedure' element={<AddProcedure />}/>
       </Routes>
     </BrowserRouter>
-    //doqizudizqkj
   );
 }
 

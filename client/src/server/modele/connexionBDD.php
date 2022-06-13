@@ -1,5 +1,5 @@
 <?php
-header('Access-Control-Allow-Origin: *');
+header("Access-Control-Allow-Origin: *");
 // ------------ définir les éléments de connexion à la BDD ------------
 
 const HOST = "host=192.168.1.206:3307";
