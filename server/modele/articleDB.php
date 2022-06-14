@@ -11,13 +11,12 @@ function getAllArticle() : array {
 function getArticleById(int $id) : array{
     $pdoConnexion = creerConnection();
     $req = $pdoConnexion->prepare("SELECT * FROM article WHERE id=:id");
-    $req->execute([
-        ":id" => $id
-    ]);
+    $req->bindParam(":id",$id,PDO::PARAM_INT);
+    $req->execute();
     return $req->fetch(PDO::FETCH_ASSOC);
 }
 
-function getArticleByCategorie($categorie) : array {
+function getArticleByCategorie(int $categorie) : array {
     $pdoConnexion = creerConnection();
     $req = $pdoConnexion->prepare("SELECT * FROM article WHERE categorie=:categorie ORDER BY nom ASC");
     $req -> bindParam(":categorie",$categorie);
@@ -28,30 +27,28 @@ function getArticleByCategorie($categorie) : array {
 function addArticle($nom, $texte, $categorie){
     $pdoConnexion = creerConnection();
     $req = $pdoConnexion->prepare("INSERT INTO article VALUES (NULL, :nom, :texte, :categorie)");
-    $req->execute([
-        ":nom" => $nom,
-        ":texte" => $texte,
-        ":categorie" => $categorie,
-    ]);
+    $req->bindParam(":nom",$nom);
+    $req->bindParam(":texte",$texte);
+    $req->bindParam(":categorie",$categorie,PDO::PARAM_INT);
+    $req->execute();
     return json_encode('ok');
 }
 
 function updateArticle($id, $nom, $texte, $categorie){
     $pdoConnexion = creerConnection();
     $requete = $pdoConnexion->prepare("UPDATE article SET nom=:nom, texte=:texte, categorie=:categorie WHERE id=:id");
-    $requete->execute([
-        ":id" => $id,
-        ":nom" => $nom,
-        ":texte" => $texte,
-        ":categorie" => $categorie,
-    ]);
+    $requete->bindParam(":id",$id,PDO::PARAM_INT);
+    $requete->bindParam(":nom",$nom);
+    $requete->bindParam(":texte",$texte);
+    $requete->bindParam(":categorie",$categorie,PDO::PARAM_INT);
+    $requete->execute();
     return json_encode('ok');
 }
 
 function deleteArticle($id) {
     $pdoConnexion = creerConnection();
     $requete = $pdoConnexion->prepare("DELETE FROM article WHERE id=:id");
-    $requete->bindParam(":id",$id);
+    $requete->bindParam(":id",$id, PDO::PARAM_INT);
     $requete->execute();
     return json_encode('ok');
 }
