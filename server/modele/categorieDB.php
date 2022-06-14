@@ -19,7 +19,7 @@ function getCategorieById($id) {
 function getCategorieByEntreprise($entreprise) : array {
     $pdoConnexion = creerConnection();
     $req = $pdoConnexion->prepare("SELECT * FROM categorie WHERE entreprise=:entreprise ORDER BY nom ASC");
-    $req->bindParam(":entreprise",$entreprise, PDO::PARAM_STR);
+    $req->bindParam(":entreprise",$entreprise, PDO::PARAM_INT);
     $req->execute();
     return $req->fetchAll(PDO::FETCH_ASSOC);
 }
