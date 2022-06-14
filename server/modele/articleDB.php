@@ -19,7 +19,7 @@ function getArticleById(int $id) : array{
 function getArticleByCategorie(int $categorie) : array {
     $pdoConnexion = creerConnection();
     $req = $pdoConnexion->prepare("SELECT * FROM article WHERE categorie=:categorie ORDER BY nom ASC");
-    $req -> bindParam(":categorie",$categorie);
+    $req -> bindParam(":categorie",$categorie, PDO::PARAM_INT);
     $req->execute();
     return $req->fetchAll(PDO::FETCH_ASSOC);
 }
@@ -27,8 +27,8 @@ function getArticleByCategorie(int $categorie) : array {
 function addArticle($nom, $texte, $categorie){
     $pdoConnexion = creerConnection();
     $req = $pdoConnexion->prepare("INSERT INTO article VALUES (NULL, :nom, :texte, :categorie)");
-    $req->bindParam(":nom",$nom);
-    $req->bindParam(":texte",$texte);
+    $req->bindParam(":nom",$nom, PDO::PARAM_STR);
+    $req->bindParam(":texte",$texte, PDO::PARAM_STR);
     $req->bindParam(":categorie",$categorie,PDO::PARAM_INT);
     $req->execute();
     return json_encode('ok');
@@ -38,8 +38,8 @@ function updateArticle($id, $nom, $texte, $categorie){
     $pdoConnexion = creerConnection();
     $requete = $pdoConnexion->prepare("UPDATE article SET nom=:nom, texte=:texte, categorie=:categorie WHERE id=:id");
     $requete->bindParam(":id",$id,PDO::PARAM_INT);
-    $requete->bindParam(":nom",$nom);
-    $requete->bindParam(":texte",$texte);
+    $requete->bindParam(":nom",$nom, PDO::PARAM_STR);
+    $requete->bindParam(":texte",$texte, PDO::PARAM_STR);
     $requete->bindParam(":categorie",$categorie,PDO::PARAM_INT);
     $requete->execute();
     return json_encode('ok');
@@ -57,7 +57,7 @@ function findArticle($research) {
     $pdoConnexion = creerConnection();
     $req = $pdoConnexion->prepare("SELECT * FROM article WHERE nom LIKE :research OR texte LIKE :research ORDER BY nom ASC");
     $research = "%".$research."%";
-    $req->bindParam(":research",$research);
+    $req->bindParam(":research",$research, PDO::PARAM_STR);
     $req->execute();
     return $req->fetchAll(PDO::FETCH_ASSOC);
 }
