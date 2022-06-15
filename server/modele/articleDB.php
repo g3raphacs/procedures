@@ -24,23 +24,25 @@ function getArticleByCategorie(int $categorie) : array {
     return $req->fetchAll(PDO::FETCH_ASSOC);
 }
 
-function addArticle($nom, $texte, $categorie){
+function addArticle($nom, $texte, $categorie, $favori){
     $pdoConnexion = creerConnection();
-    $req = $pdoConnexion->prepare("INSERT INTO article VALUES (NULL, :nom, :texte, :categorie)");
+    $req = $pdoConnexion->prepare("INSERT INTO article VALUES (NULL, :nom, :texte, :categorie, :favori)");
     $req->bindParam(":nom",$nom, PDO::PARAM_STR);
     $req->bindParam(":texte",$texte, PDO::PARAM_STR);
     $req->bindParam(":categorie",$categorie,PDO::PARAM_INT);
+    $req->bindParam(":favori", $favori, PDO::PARAM_INT);
     $req->execute();
     return json_encode('ok');
 }
 
-function updateArticle($id, $nom, $texte, $categorie){
+function updateArticle($id, $nom, $texte, $categorie, $favori){
     $pdoConnexion = creerConnection();
     $requete = $pdoConnexion->prepare("UPDATE article SET nom=:nom, texte=:texte, categorie=:categorie WHERE id=:id");
     $requete->bindParam(":id",$id,PDO::PARAM_INT);
     $requete->bindParam(":nom",$nom, PDO::PARAM_STR);
     $requete->bindParam(":texte",$texte, PDO::PARAM_STR);
     $requete->bindParam(":categorie",$categorie,PDO::PARAM_INT);
+    $requete->bindParam(":favori", $favori, PDO::PARAM_INT);
     $requete->execute();
     return json_encode('ok');
 }
