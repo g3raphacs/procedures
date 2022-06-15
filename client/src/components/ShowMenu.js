@@ -1,12 +1,11 @@
 import Button from './Button';
 import MenuProcedure from './MenuProcedure';
-import { Link } from "react-router-dom";
 
-const ShowMenu=()=>{
+const ShowMenu=(props)=>{
     return(
         <div>
             <div class='addProcButton'>
-                <Link to='addprocedure'><Button content='Ajouter une procédure'/></Link>
+                <Button page={props.page} content='Ajouter une procédure'/>
             </div>
             <div class='menuProcedure'>
                 <MenuProcedure />

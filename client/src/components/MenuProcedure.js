@@ -1,5 +1,3 @@
-import JsonTab from './JsonTab';
-
 const MenuProcedure=()=>{
     // return(
     //     categorieTab.map(categorie=>{
