@@ -37,7 +37,7 @@ function addArticle($nom, $texte, $categorie, $favori){
 
 function updateArticle($id, $nom, $texte, $categorie, $favori){
     $pdoConnexion = creerConnection();
-    $requete = $pdoConnexion->prepare("UPDATE article SET nom=:nom, texte=:texte, categorie=:categorie WHERE id=:id");
+    $requete = $pdoConnexion->prepare("UPDATE article SET nom=:nom, texte=:texte, categorie=:categorie, favori=:favori WHERE id=:id");
     $requete->bindParam(":id",$id,PDO::PARAM_INT);
     $requete->bindParam(":nom",$nom, PDO::PARAM_STR);
     $requete->bindParam(":texte",$texte, PDO::PARAM_STR);
