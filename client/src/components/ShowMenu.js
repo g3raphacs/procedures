@@ -3,12 +3,12 @@ import MenuProcedure from './MenuProcedure';
 
 const ShowMenu=(props)=>{
     return(
-        <div>
+        <div class='showMenu'>
             <div class='addProcButton'>
-                <Button page={props.page} content='Ajouter une procédure'/>
+                <Button page={props.page} content='+'/>
             </div>
             <div class='menuProcedure'>
-                <MenuProcedure />
+                <MenuProcedure onCategorieClick={(id)=>props.onCategorieClick(id)}/>
             </div>
         </div>
     )

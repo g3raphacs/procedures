@@ -1,15 +1,14 @@
-import Title from './Title';
-import Text from './Text';
-import Axios from 'axios';
+import React, {useState,useEffect} from 'react';
+import AxiosRequest from './Json';
 
-const ShowProcedure=()=>{
+const ShowProcedure=(props)=>{
     return(
         <div>
             <div class='title'>
-                <Title />
+                
             </div>
             <div class='text'>
-                <Text />
+                
             </div>
         </div>
     )
