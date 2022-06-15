@@ -63,3 +63,10 @@ function findArticle($research) {
     $req->execute();
     return $req->fetchAll(PDO::FETCH_ASSOC);
 }
+
+function getAllArticleFavorie(){
+    $pdoConnexion = creerConnection();
+    $req = $pdoConnexion->prepare("SELECT * FROM article ORDER BY favori DESC, nom ASC");
+    $req->execute();
+    return $req->fetchAll(PDO::FETCH_ASSOC);
+}
