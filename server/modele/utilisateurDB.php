@@ -36,3 +36,10 @@ function deleteUtilisateur($id){
     $req->execute();
     return json_encode('ok');
 }
+
+function getAllUtilisateur() {
+    $pdoConnexion = creerConnection();
+    $req = $pdoConnexion->prepare("SELECT * FROM utilisateur");
+    $req->execute();
+    return $req->fetchAll(PDO::FETCH_ASSOC);
+}
