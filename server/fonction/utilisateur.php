@@ -12,3 +12,13 @@ function connexion($login, $password) {
     }
     return true;
 }
+
+function userExists($idUtilisateur){
+    $utilisateurs = getAllUtilisateur();
+    foreach ($utilisateurs as $utilisateur){
+        if ($utilisateur['id']==$idUtilisateur){
+            return true;
+        }
+    }
+    return false;
+}
