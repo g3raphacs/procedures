@@ -14,4 +14,4 @@ foreach ($categories as $categorie){
     }
 }
 
-echo addCategorie($addCategorie['nom'],$addCategorie['entreprise']);
+echo addCategorie(ucfirst($addCategorie['nom']),$addCategorie['entreprise']);

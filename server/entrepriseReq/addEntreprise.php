@@ -14,5 +14,5 @@ foreach ($entreprises as $entreprise){
     }
 }
 
-echo addEntreprise($addEntreprise['nom']);
+echo addEntreprise(ucfirst($addEntreprise['nom']));
 

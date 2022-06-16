@@ -14,4 +14,4 @@ foreach ($articles as $article){
     }
 }
 
-echo addArticle($addArticle['nom'], $addArticle['texte'], $addArticle['categorie'], $addArticle['favori']);
+echo addArticle(ucfirst($addArticle['nom']), $addArticle['texte'], $addArticle['categorie'], $addArticle['favori']);

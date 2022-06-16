@@ -15,7 +15,7 @@ if (entrepriseExists($updateEntreprise['id'])){
             exit;
         }
     }
-    echo  updateEntreprise($updateEntreprise['id'], $updateEntreprise['nom']);
+    echo  updateEntreprise($updateEntreprise['id'], ucfirst($updateEntreprise['nom']));
 } else {
     echo json_encode(['message' => 'entreprise introuvable']);
 }

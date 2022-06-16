@@ -15,7 +15,7 @@ if (articleExists($updateArticle['id'])){
             exit;
         }
     }
-    echo updateArticle($updateArticle['id'],$updateArticle['nom'],$updateArticle['texte'],$updateArticle['categorie'], $updateArticle['favori']);
+    echo updateArticle($updateArticle['id'],ucfirst($updateArticle['nom']),$updateArticle['texte'],$updateArticle['categorie'], $updateArticle['favori']);
 } else {
     echo json_encode(['message' => 'utilisateur introuvable']);
 }

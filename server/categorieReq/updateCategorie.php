@@ -15,8 +15,7 @@ if (categorieExists($updateCategorie['id'])){
             exit;
         }
     }
-    echo updateCategorie($updateCategorie['id'], $updateCategorie['nom'], $updateCategorie['entreprise']);
+    echo updateCategorie($updateCategorie['id'], ucfirst($updateCategorie['nom']), $updateCategorie['entreprise']);
 } else {
     echo json_encode(['message' => 'categorie introuvable']);
 }
-
