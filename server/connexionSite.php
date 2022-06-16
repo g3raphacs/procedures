@@ -1,5 +1,6 @@
 <?php
 
+require_once "modele/utilisateurDB.php";
 require_once "fonction/utilisateur.php";
 require_once "jwt/includes/config.php";
 require_once "classes/JWT.php";

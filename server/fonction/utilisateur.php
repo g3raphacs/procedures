@@ -1,7 +1,5 @@
 <?php
 
-require_once "modele/utilisateurDB.php";
-
 function connexion($login, $password) {
     $utilisateur = getUtilisateurByLogin($login);
     if (!$utilisateur) {

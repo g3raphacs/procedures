@@ -12,7 +12,7 @@ $utilisateurs = getAllUtilisateur();
 
 if (userExists($updateUtilisateur['id'])){
     foreach ($utilisateurs as $utilisateur){
-        if(str_replace(' ', '', strtolower($utilisateur['login']))===str_replace(' ', '', strtolower($updateUtilisateur['login']))){
+        if(str_replace(' ', '', strtolower($utilisateur['login']))===str_replace(' ', '', strtolower($updateUtilisateur['login'])) && $utilisateur['id']!=$updateUtilisateur['id']){
             echo json_encode(['message' => 'login déja utilisé']);
             exit;
         }
