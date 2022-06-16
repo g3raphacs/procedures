@@ -8,7 +8,7 @@ $addCategorie = json_decode($_POST['addCategorie'], true);
 $categories = getAllCategorie();
 
 foreach ($categories as $categorie){
-    if($categorie['nom']===$addCategorie['nom']){
+    if(str_replace(' ', '', strtolower($categorie['nom'])) === str_replace(' ', '', strtolower($addCategorie['nom']))){
         echo json_encode(['message' => 'nom de catégorie déja utilisé']);
         exit;
     }

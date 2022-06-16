@@ -2,7 +2,14 @@
 
 require_once "../modele/categorieDB.php";
 require_once "../jwt/auth.php";
+require_once "../fonction/categorie.php";
 
 $deleteCategorie = json_decode($_POST['id'], true);
 
-echo deleteCategorie($deleteCategorie['id']);
+$categories = getAllCategorie();
+
+if (categorieExists($deleteCategorie['id'])){
+    echo deleteCategorie($deleteCategorie['id']);
+} else {
+    echo json_encode(['message' => 'categorie introuvable']);
+}
