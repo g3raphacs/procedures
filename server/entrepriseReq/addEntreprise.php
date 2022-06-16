@@ -8,7 +8,7 @@ $addEntreprise = json_decode($_POST['addEntreprise'], true );
 $entreprises = getAllEntreprise();
 
 foreach ($entreprises as $entreprise){
-    if($entreprise['nom_entreprise']===$addEntreprise['nom']){
+    if(str_replace(' ', '', strtolower($entreprise['nom_entreprise'])) === str_replace(' ', '', strtolower($addEntreprise['nom']))){
         echo json_encode(['message' => "nom d'entreprise déja utilisé"]);
         exit;
     }

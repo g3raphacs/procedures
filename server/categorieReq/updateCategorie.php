@@ -11,7 +11,7 @@ $categories = getAllCategorie();
 if (categorieExists($updateCategorie['id'])){
     foreach ($categories as $categorie){
         if(str_replace(' ', '', strtolower($categorie['nom']))===str_replace(' ', '', strtolower($updateCategorie['nom'])) && $categorie['id']!=$updateCategorie['id']){
-            echo json_encode(['message' => 'nom article déja utilisé']);
+            echo json_encode(['message' => 'nom de categorie déjà utilisé']);
             exit;
         }
     }
