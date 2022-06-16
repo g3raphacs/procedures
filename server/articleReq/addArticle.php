@@ -8,7 +8,7 @@ $addArticle = json_decode($_POST['addArticle'], true);
 $articles = getAllArticle();
 
 foreach ($articles as $article){
-    if($article['nom']===$addArticle['nom']){
+    if(str_replace(' ', '', strtolower($article['nom'])) === str_replace(' ', '', strtolower($addArticle['nom']))){
         echo json_encode(['message' => 'nom de procédure déja utilisé']);
         exit;
     }
