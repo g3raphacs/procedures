@@ -10,7 +10,7 @@ $utilisateurs = getAllUtilisateur();
 
 foreach ($utilisateurs as $utilisateur){
     if(str_replace(' ', '', strtolower($utilisateur['login'])) === str_replace(' ', '', strtolower($addUtilisateur['login']))){
-        echo json_encode(['message' => 'login déja utilisé']);
+        echo json_encode(['message' => 'login déjà utilisé', 'erreur' => true]);
         exit;
     }
 }

@@ -16,7 +16,7 @@ function addUtilisateur($login, $password){
     $req->bindParam(":login",$login, PDO::PARAM_STR);
     $req->bindParam(":password",$password, PDO::PARAM_STR);
     $req->execute();
-    return json_encode('ok');
+    return json_encode(['message' => 'utilisateur ajouté', 'erreur' => false]);
 }
 
 function updateUtilisateur($id, $login, $password){
@@ -26,7 +26,7 @@ function updateUtilisateur($id, $login, $password){
     $req->bindParam(":login",$login, PDO::PARAM_STR);
     $req->bindParam(":password",$password, PDO::PARAM_STR);
     $req->execute();
-    return json_encode('ok');
+    return json_encode(['message' => 'utilisateur modifié', 'erreur' => false]);
 }
 
 function deleteUtilisateur($id){
@@ -34,7 +34,7 @@ function deleteUtilisateur($id){
     $req = $pdoConnexion->prepare("DELETE FROM utilisateur WHERE id=:id");
     $req->bindParam(":id",$id, PDO::PARAM_INT);
     $req->execute();
-    return json_encode('ok');
+    return json_encode(['message' => 'utilisateur supprimé', 'erreur' => false]);
 }
 
 function getAllUtilisateur() {

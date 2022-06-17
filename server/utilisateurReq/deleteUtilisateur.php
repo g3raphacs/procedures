@@ -11,6 +11,6 @@ $deleteUtilisateur = json_decode($_POST['id'],true);
 if (userExists($deleteUtilisateur['id'])){
     echo deleteUtilisateur($deleteUtilisateur['id']);
 } else {
-    echo json_encode(['message' => 'utilisateur introuvable']);
+    echo json_encode(['message' => 'utilisateur introuvable', 'erreur' => true]);
 }
 

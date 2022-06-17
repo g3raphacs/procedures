@@ -11,6 +11,6 @@ $articles = getAllArticle();
 if (articleExists($deleteArticle['id'])){
     echo deleteArticle($deleteArticle['id']);
 } else {
-    echo json_encode(['message' => 'article introuvable']);
+    echo json_encode(['message' => 'article introuvable', 'erreur' => true]);
 }
 

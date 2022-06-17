@@ -9,7 +9,7 @@ $entreprises = getAllEntreprise();
 
 foreach ($entreprises as $entreprise){
     if(str_replace(' ', '', strtolower($entreprise['nom_entreprise'])) === str_replace(' ', '', strtolower($addEntreprise['nom']))){
-        echo json_encode(['message' => "nom d'entreprise déja utilisé"]);
+        echo json_encode(['message' => 'nom entreprise déjà utilisé', 'erreur' => true]);
         exit;
     }
 }

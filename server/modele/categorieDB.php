@@ -30,7 +30,7 @@ function addCategorie($nom, $entreprise) {
     $req->bindParam(":nom", $nom, PDO::PARAM_STR);
     $req->bindParam("entreprise", $entreprise, PDO::PARAM_INT);
     $req->execute();
-    return json_encode('ok');
+    return json_encode(['message' => 'catégorie ajouté', 'erreur' => false]);
 }
 
 function updateCategorie($id, $nom, $entreprise){
@@ -40,7 +40,7 @@ function updateCategorie($id, $nom, $entreprise){
     $requete->bindParam(":nom", $nom, PDO::PARAM_STR);
     $requete->bindParam(":entreprise", $entreprise, PDO::PARAM_INT);
     $requete->execute();
-    return json_encode('ok');
+    return json_encode(['message' => 'catégorie modifié', 'erreur' => false]);
 }
 
 function deleteCategorie($id) {
@@ -48,5 +48,5 @@ function deleteCategorie($id) {
     $req = $pdoConnexion->prepare("DELETE FROM categorie WHERE id=:id");
     $req->bindParam(":id",$id, PDO::PARAM_INT);
     $req->execute();
-    return json_encode('ok');
+    return json_encode(['message' => 'catégorie supprimer', 'erreur' => false]);
 }

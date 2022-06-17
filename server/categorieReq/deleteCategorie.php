@@ -11,5 +11,5 @@ $categories = getAllCategorie();
 if (categorieExists($deleteCategorie['id'])){
     echo deleteCategorie($deleteCategorie['id']);
 } else {
-    echo json_encode(['message' => 'categorie introuvable']);
+    echo json_encode(['message' => 'catégorie introuvable', 'erreur' => true]);
 }

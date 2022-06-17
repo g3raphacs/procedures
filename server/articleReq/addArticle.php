@@ -8,8 +8,8 @@ $addArticle = json_decode($_POST['addArticle'], true);
 $articles = getAllArticle();
 
 foreach ($articles as $article){
-    if(str_replace(' ', '', strtolower($article['nom'])) === str_replace(' ', '', strtolower($addArticle['nom']))){
-        echo json_encode(['message' => 'nom de procédure déja utilisé']);
+    if(str_replace(' ', '', strtolower($article['nom'])) === str_replace(' ', '', strtolower($addArticle['nom'])) && $article['categorie']==$addArticle['categorie']){
+        echo json_encode(['message' => 'nom article déjà utilisé dans cette catégorie', 'erreur' => true]);
         exit;
     }
 }

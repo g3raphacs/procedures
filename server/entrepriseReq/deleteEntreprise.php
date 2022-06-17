@@ -11,5 +11,5 @@ $Entreprises = getAllEntreprise();
 if (entrepriseExists($deleteEntreprise['id'])){
     echo deleteEntreprise($deleteEntreprise['id']);
 } else {
-    echo json_encode(['message' => 'entreprise introuvable']);
+    echo json_encode(['message' => 'entreprise introuvable', 'erreur' => true]);
 }

@@ -22,7 +22,7 @@ function addEntreprise($nom){
     $req = $pdoConnexion->prepare("INSERT INTO entreprise VALUES (NULL, :nom)");
     $req->bindParam(":nom", $nom, PDO::PARAM_STR);
     $req->execute();
-    return json_encode('ok');
+    return json_encode(['message' => 'entreprise ajouté', 'erreur' => false]);
 }
 
 function updateEntreprise($id, $nom){
@@ -31,7 +31,7 @@ function updateEntreprise($id, $nom){
     $requete->bindParam(":id", $id, PDO::PARAM_INT);
     $requete->bindParam(":nom", $nom, PDO::PARAM_STR);
     $requete->execute();
-    return json_encode('ok');
+    return json_encode(['message' => 'entreprise modifié', 'erreur' => false]);
 }
 
 function deleteEntreprise($id) {
@@ -39,5 +39,5 @@ function deleteEntreprise($id) {
     $requete = $pdoConnexion->prepare("DELETE FROM entreprise WHERE id=:id");
     $requete->bindParam(":id",$id ,PDO::PARAM_INT);
     $requete->execute();
-    return json_encode('ok');
+    return json_encode(['message' => 'entreprise supprimé', 'erreur' => false]);
 }
