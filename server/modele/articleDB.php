@@ -32,7 +32,7 @@ function addArticle($nom, $texte, $categorie, $favori){
     $req->bindParam(":categorie",$categorie,PDO::PARAM_INT);
     $req->bindParam(":favori", $favori, PDO::PARAM_INT);
     $req->execute();
-    return json_encode('ok');
+    return json_encode(['message' => 'article ajouté', 'erreur' => false]);
 }
 
 function updateArticle($id, $nom, $texte, $categorie, $favori){
@@ -44,7 +44,7 @@ function updateArticle($id, $nom, $texte, $categorie, $favori){
     $requete->bindParam(":categorie",$categorie,PDO::PARAM_INT);
     $requete->bindParam(":favori", $favori, PDO::PARAM_INT);
     $requete->execute();
-    return json_encode('ok');
+    return json_encode(['message' => 'article modifié', 'erreur' => false]);
 }
 
 function deleteArticle($id) {
@@ -52,7 +52,7 @@ function deleteArticle($id) {
     $requete = $pdoConnexion->prepare("DELETE FROM article WHERE id=:id");
     $requete->bindParam(":id",$id, PDO::PARAM_INT);
     $requete->execute();
-    return json_encode('ok');
+    return json_encode(['message' => 'article supprimé', 'erreur' => false]);
 }
 
 function findArticle($research) {
