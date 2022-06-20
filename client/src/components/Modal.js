@@ -1,19 +1,16 @@
-const Modal=()=>{
-    return(
-        <div class='modal'>
-            <div class='modal-header'>
-                <h2>Header Modal</h2>
-            </div>
+import React from 'react';
 
-            <div class='modal-body'>
-                <h2>Body Modal</h2>
+const Modal = () => {
+    return (
+        <div className='Modal'>
+            <div className='ModalHeader'>
+                <h1>Titre Modal</h1>
             </div>
-
-            <div class='modal-footer'>
-                <h2>Footer Modal</h2>
+            <div className='ModalBody'>
+                <p>Body Modal</p>
             </div>
         </div>
-    )
-}
+    );
+};
 
 export default Modal;
