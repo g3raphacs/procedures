@@ -23,7 +23,9 @@ const Home = () => {
                 <div className={menuCategorieState.open===true?'LeftMenu Open':'LeftMenu'}>
                     <div className='LeftContent'>
                         <PlusButton />
-                        <Categorie />
+                        <div className='Categorie'>
+                            <Categorie />
+                        </div>
                     </div>
                 </div>
                 <div className='RightMenu'>

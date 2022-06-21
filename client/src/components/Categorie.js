@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import File from '../image/procedure.svg';
+import { MenuCategorieContext } from '../store/MenuCategorieStore';
 
 const CategoriesTab = [
     {
@@ -25,20 +26,33 @@ const CategoriesTab = [
 ]
 
 const Categorie = () => {
-    return (
-        <div className='Categorie'>
-            {CategoriesTab.map( CategoriesTab =>
-                <div className='Card'>
-                    <div className='CardImage'>
-                        <img src={File} />
+    const [menuCategorieState, menuCategorieDispatch] = useContext(MenuCategorieContext);
+
+    if (menuCategorieState.open===true){
+        return (
+            <div>
+                {CategoriesTab.map( CategoriesTab =>
+                    <div className='Card'>
+                        <div className='CardImage'>
+                            <img src={File} />
+                        </div>
+                        <div className='CardTitle'>
+                            <p key={CategoriesTab.id}>{CategoriesTab.name}</p>
+                        </div>
                     </div>
-                    <div className='CardTitle'>
-                        <p key={CategoriesTab.id}>{CategoriesTab.name}</p>
-                    </div>
-                </div>
-            )}
-        </div>
-    )
+                )}
+            </div>
+        )
+    }
+    else{
+        return(
+            <ul>
+                {CategoriesTab.map( CategoriesTab => 
+                    <li key={CategoriesTab.id}>{CategoriesTab.name}</li>
+                )}
+            </ul>
+        )
+    }
 }
 
 export default Categorie;
