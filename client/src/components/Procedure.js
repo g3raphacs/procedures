@@ -1,4 +1,5 @@
 import React from 'react';
+import File from '../image/procedure.svg';
 
 const ProceduresTab = [
     {
@@ -56,11 +57,21 @@ const ProceduresTab = [
 const Procedure = () => {
     return (
         <div className='Procedure'>
-            <ul>
+            {/* <ul>
                 {ProceduresTab.map( ProcedureTab =>
                     <li key={ProcedureTab.id}>{ProcedureTab.name}</li>
                 )}
-            </ul>
+            </ul> */}
+            {ProceduresTab.map( ProcedureTab => 
+                <div className='Card'>
+                    <div className='CardImage'>
+                        <img src={File} />
+                    </div>
+                    <div className='CardTitle'>
+                        <p>{ProcedureTab.name}</p>
+                    </div>
+                </div>
+            )}
         </div>
     );
 };

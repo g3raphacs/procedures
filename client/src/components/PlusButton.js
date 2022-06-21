@@ -1,10 +1,10 @@
 import React, { useContext } from 'react';
 import { MenuCategorieContext } from '../store/MenuCategorieStore';
 
-const PlusButton = (props) => {
+const PlusButton = () => {
     const [menuCategorieState, menuCategorieDispatch] = useContext(MenuCategorieContext);
 
-    function handleClick() {
+    function handleClick(){
         menuCategorieDispatch({
             type: 'click',
             payload: !menuCategorieState.open

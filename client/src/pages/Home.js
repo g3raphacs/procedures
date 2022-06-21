@@ -4,7 +4,7 @@ import Research from '../components/Research';
 import Categorie from '../components/Categorie';
 import Procedure from '../components/Procedure';
 import AddProcedureButton from '../components/AddProcedureButton';
-import Modal from '../components/Modal';
+import AddProcedure from '../components/AddProcedure';
 import { MenuCategorieContext } from '../store/MenuCategorieStore';
 import '../style/Home.scss';
 
@@ -19,6 +19,7 @@ const Home = () => {
             </div>
 
             <div className='Content'>
+                <div className={menuCategorieState.open===true?'LeftBackground Open':'LeftBackground'} onClick={()=>{menuCategorieDispatch({type: 'click',payload: false})}}/>
                 <div className={menuCategorieState.open===true?'LeftMenu Open':'LeftMenu'}>
                     <div className='LeftContent'>
                         <PlusButton />
@@ -31,10 +32,7 @@ const Home = () => {
                     </div>
                 </div>
             </div>
-
-            <div className='ModalWindow'>
-                <Modal />
-            </div>
+            <AddProcedure />
         </div>
     );
 };

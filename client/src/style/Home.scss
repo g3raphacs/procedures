@@ -32,6 +32,20 @@
     }
     .Content{
         display:flex;
+        .LeftBackground{
+            top:0;
+            left:0;
+            width:0vw;
+            height:100vh;
+            position:absolute;
+            transition:width 0ms ease-in-out 500ms,background-color 500ms ease-in-out;
+            &.Open{
+                transition:background-color 500ms ease-in-out;
+                width:100vw;
+                height:100vh;
+                background-color:rgba(0, 0, 0, 0.401);
+            }
+        }
         .LeftMenu{
             transition: width 500ms ease-in-out;
             position:absolute;
@@ -74,21 +88,34 @@
                 width:80vw;
             }
         }
-        .LeftMenuOpen{
-            width:80vw;
-        }
         .RightMenu{
             width:calc(100vw - (15vw + 3%));
-            margin-left:20vw;
+            margin-left:25vw;
             .RightContent{
                 margin-top:calc(10vh + 25px);
-                margin-left:25px;
-                li{
-                    list-style-type:none;
-                    cursor:pointer;
-                }
-                li:hover{
-                    color:#F26100;
+                .Procedure{
+                    display:flex;
+                    flex-wrap:wrap;
+                    align-items:center;
+                    .Card{
+                        justify-content:center;
+                        width:400px;
+                        margin: 2%;
+                        .CardImage{
+                            text-align:center;
+                            img{
+                                width:70px;
+                                cursor:pointer;
+                            }
+                        }
+                        .CardTitle{
+                            text-align:center;
+                            cursor:pointer;
+                        }
+                        .CardTitle:hover{
+                            color:#F26100;
+                        }
+                    }
                 }
             }
         }
@@ -102,5 +129,29 @@
         align-items:center;
         justify-content:center;
         position:absolute;
+        
+        .ModalBackground{
+            top:0;
+            left:0;
+            width:100vw;
+            height:100vh;
+            position:absolute;
+            background-color:rgba(0, 0, 0, 0.401);
+        }
+        .Modal{
+            width:80vw;
+            height:80vh;
+            background-color:#EAE6DF;
+            border-style:solid;
+            border-width:3px;
+            border-radius:10px;
+            border-color:#aacae9;
+            position:absolute;
+            text-align:center;
+            overflow-y: auto;
+            .ModalBody{
+                margin-top:4%;
+            }
+        }
     }
 }
