@@ -57,18 +57,13 @@ const ProceduresTab = [
 const Procedure = () => {
     return (
         <div className='Procedure'>
-            {/* <ul>
-                {ProceduresTab.map( ProcedureTab =>
-                    <li key={ProcedureTab.id}>{ProcedureTab.name}</li>
-                )}
-            </ul> */}
             {ProceduresTab.map( ProcedureTab => 
                 <div className='Card'>
                     <div className='CardImage'>
                         <img src={File} />
                     </div>
                     <div className='CardTitle'>
-                        <p>{ProcedureTab.name}</p>
+                        <p key={ProcedureTab.id}>{ProcedureTab.name}</p>
                     </div>
                 </div>
             )}

@@ -1,5 +1,9 @@
 import React, { useContext } from 'react';
 import { ModalProcedureContext } from '../store/ModalProcedureStore';
+import Editor from './Editor';
+import ValidateButton from './ValidateButton';
+import CancelButton from './CancelButton';
+import ChooseCategorie from './ChooseCategorie';
 
 const AddProcedure = () => {
     const [modalProcedureState, modalProcedureDispatch] = useContext(ModalProcedureContext);
@@ -13,7 +17,16 @@ const AddProcedure = () => {
                         <h1>Ajouter une nouvelle procédure</h1>
                     </div>
                     <div className='ModalBody'>
-                        <p>Body Modal</p>
+                        <div className='ChooseCategorie'>
+                            <ChooseCategorie />
+                        </div>
+                        <div className='Editor'>
+                            <Editor />
+                        </div>
+                        <div className='DecisionButton'>
+                            <ValidateButton />
+                            <CancelButton />
+                        </div>
                     </div>
                 </div>
             </div>
