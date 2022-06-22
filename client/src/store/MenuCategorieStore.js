@@ -1,7 +1,7 @@
 import React, { useReducer, createContext } from "react";
 
 const initialState = {
-    open: false,
+    open: false
 };
 
 const MenuCategorieReducer = (state,action) => {
@@ -9,7 +9,7 @@ const MenuCategorieReducer = (state,action) => {
         case 'click':
             return{
                 ...state,
-                open: action.payload,
+                open: action.payload
             }
         default:
             return state;
@@ -28,4 +28,4 @@ const MenuCategorieContextProvider = ({ children }) => {
     )
 }
 
-export default MenuCategorieContextProvider
+export default MenuCategorieContextProvider;

@@ -1,15 +1,18 @@
 import React, { useContext, useEffect, useState } from 'react';
+import { ShowProcedureContext } from '../store/ShowProcedureStore';
 import File from '../image/procedure.svg';
 import axios from 'axios';
 
 const Procedure = () => {
-    const token = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyIjoidGVzdCBsb2dpbiAyIiwiaWF0IjoxNjU1ODI1NzI0LCJleHAiOjE2NTU5MTIxMjR9.mkTE9cdGQg572Q_ML6XZA-SZjvUb64FcUN3dH-tODJA';
+    const token = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyIjoidGVzdCBsb2dpbiAyIiwiaWF0IjoxNjU1OTEyNzgyLCJleHAiOjE2NTU5OTkxODJ9.vje_6Z1y0xw8JLOzdvwmJmrZXmKsMHGD8rxOZZjnFKI';
+    const query = 'http://localhost:8000/articleReq/getAllArticle.php'
+    const [showProcedureState, showProcedureDispatch] = useContext(ShowProcedureContext);
 
     const [procedures,setProcedures] = useState();
     useEffect(() => {
         const getProcedures = async () =>{
             const response = await axios
-            .post('http://localhost:8000/articleReq/getAllArticle.php',
+            .post(query,
             {key:'value'},
             {headers:{Authorization: `Bearer ${token}`}})
             setProcedures(response.data)
@@ -20,7 +23,7 @@ const Procedure = () => {
     return (
         <div className='Procedure'>
             {procedures?.map( procedure => 
-                <div className='Card'>
+                <div className='Card' onClick={() => {showProcedureDispatch({type: 'click', payload: procedure.id})}}>
                     <div className='CardImage'>
                         <img src={File} />
                     </div>

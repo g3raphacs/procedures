@@ -1,11 +1,11 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import File from '../image/procedure.svg';
 import { MenuCategorieContext } from '../store/MenuCategorieStore';
 import axios from 'axios';
 
 const Categorie = () => {
     const [menuCategorieState, menuCategorieDispatch] = useContext(MenuCategorieContext);
-    const token = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyIjoidGVzdCBsb2dpbiAyIiwiaWF0IjoxNjU1ODI1NzI0LCJleHAiOjE2NTU5MTIxMjR9.mkTE9cdGQg572Q_ML6XZA-SZjvUb64FcUN3dH-tODJA';
+    const token = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyIjoidGVzdCBsb2dpbiAyIiwiaWF0IjoxNjU1OTEyNzgyLCJleHAiOjE2NTU5OTkxODJ9.vje_6Z1y0xw8JLOzdvwmJmrZXmKsMHGD8rxOZZjnFKI';
 
     const [categories,setCategories] = useState();
     useEffect(() => {

@@ -20,7 +20,6 @@ const AddProcedure = () => {
                             <ValidateButton />
                             <CancelButton />
                         </div>
-
                     </div>
                     <div className='ModalBody'>
                         <div className='Editor'>

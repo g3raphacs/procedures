@@ -5,6 +5,7 @@ import Categorie from '../components/Categorie';
 import Procedure from '../components/Procedure';
 import AddProcedureButton from '../components/AddProcedureButton';
 import AddProcedure from '../components/AddProcedure';
+import ShowProcedure from '../components/ShowProcedure';
 import { MenuCategorieContext } from '../store/MenuCategorieStore';
 import '../style/Home.scss';
 
@@ -35,6 +36,7 @@ const Home = () => {
                 </div>
             </div>
             <AddProcedure />
+            <ShowProcedure />
         </div>
     );
 };
