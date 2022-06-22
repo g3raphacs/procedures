@@ -15,17 +15,16 @@ const AddProcedure = () => {
                 <div className='Modal'>
                     <div className='ModalHeader'>
                         <h1>Ajouter une nouvelle procédure</h1>
-                    </div>
-                    <div className='ModalBody'>
-                        <div className='ChooseCategorie'>
-                            <ChooseCategorie />
-                        </div>
-                        <div className='Editor'>
-                            <Editor />
-                        </div>
+                        <ChooseCategorie />
                         <div className='DecisionButton'>
                             <ValidateButton />
                             <CancelButton />
+                        </div>
+
+                    </div>
+                    <div className='ModalBody'>
+                        <div className='Editor'>
+                            <Editor />
                         </div>
                     </div>
                 </div>

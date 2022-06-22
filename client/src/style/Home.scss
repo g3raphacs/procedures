@@ -23,7 +23,8 @@
             color:#F2ECE4;
             border-radius:4px;
             border:none;
-            font-size:18px;
+            font-size:16px;
+            padding: 4px;
             text-decoration:none;
             font-weight:bold;
             cursor:pointer;
@@ -58,20 +59,21 @@
                 display:flex;
                 flex-direction:column;
                 align-items:center;
-                    button{
-                        position:absolute;
-                        width:5vw;
-                        background-color:#f26100;
-                        color:#F2ECE4;
-                        border-radius:4px;
-                        border:none;
-                        font-size:18px;
-                        text-decoration:none;
-                        font-weight:bold;
-                        top:10px;
-                        right:-15px;
-                        cursor:pointer;
-                    }
+                button{
+                    position:absolute;
+                    width:5vw;
+                    background-color:#f26100;
+                    color:#F2ECE4;
+                    border-radius:4px;
+                    border:none;
+                    font-size:16px;
+                    padding: 4px;
+                    text-decoration:none;
+                    font-weight:bold;
+                    top:10px;
+                    right:-15px;
+                    cursor:pointer;
+                }
                 ul{
                     margin:0;
                     padding:0;
@@ -86,6 +88,38 @@
             }
             &.Open{
                 width:80vw;
+                .Categorie{
+                    display:flex;
+                    flex-wrap:wrap;
+                    justify-content: space-around;
+                    align-items: center;
+                    width: 60vw;
+                    height: 80vh;
+                    overflow: scroll;
+                    .Card{
+                        justify-content:left;
+                        width:300px;
+                        margin: 2%;
+                        display: flex;
+                        .CardImage{
+                            text-align:center;
+                            img{
+                                width:50px;
+                                cursor:pointer;
+                            }
+                        }
+                        .CardTitle{
+                            text-align:center;
+                            cursor:pointer;
+                            display: flex;
+                            flex-direction: column;
+                            margin-left: 1rem;
+                        }
+                        .CardTitle:hover{
+                            color:#F26100;
+                        }
+                    }
+                }
             }
         }
         .RightMenu{
@@ -98,6 +132,9 @@
                     flex-wrap:wrap;
                     justify-content: space-around;
                     align-items: center;
+                    width: 74vw;
+                    height: 80vh;
+                    overflow: scroll;
                     .Card{
                         justify-content:left;
                         width:400px;
@@ -144,6 +181,8 @@
             background-color:rgba(0, 0, 0, 0.401);
         }
         .Modal{
+            display: flex;
+            flex-direction: column;
             width:80vw;
             height:80vh;
             background-color:#EAE6DF;
@@ -154,8 +193,48 @@
             position:absolute;
             text-align:center;
             overflow-y: auto;
+            .ModalHeader{
+                display: flex;
+                width: 80vw;
+                justify-content: space-around;
+                position: fixed;
+                background-color: #EAE6DF;
+                z-index: 1;
+                .ChooseCategorie{
+                    display: flex;
+                    margin-top: 2%;
+                    select{
+                        height: 30px;
+                        border-radius:4px;
+                        font-size:17px;
+                        cursor:pointer;
+                    }
+                }
+                .DecisionButton{
+                    display: flex;
+                    flex-direction: row-reverse;
+                    margin-top: 2%;
+                    button{
+                        background-color:#F26100;
+                        color:#F2ECE4;
+                        border-radius:4px;
+                        border:none;
+                        font-size:17px;
+                        padding: 6px;
+                        text-decoration:none;
+                        cursor:pointer;
+                    }
+                }
+            }
             .ModalBody{
                 margin-top:4%;
+                .Editor{
+                    margin: 2em;
+                    .ck-content{
+                        height: 60vh;
+                    }
+
+                }
             }
         }
     }
