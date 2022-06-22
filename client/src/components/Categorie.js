@@ -1,54 +1,45 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import File from '../image/procedure.svg';
 import { MenuCategorieContext } from '../store/MenuCategorieStore';
-
-const CategoriesTab = [
-    {
-        id:1,
-        name:'Catégorie 1',
-    },
-    {
-        id:2,
-        name:'Catégorie 2',
-    },
-    {
-        id:3,
-        name:'Catégorie 3',
-    },
-    {
-        id:4,
-        name:'Catégorie 4',
-    },
-    {
-        id:5,
-        name:'Catégorie 5',
-    }
-]
+import axios from 'axios';
 
 const Categorie = () => {
     const [menuCategorieState, menuCategorieDispatch] = useContext(MenuCategorieContext);
+    const token = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyIjoidGVzdCBsb2dpbiAyIiwiaWF0IjoxNjU1ODI1NzI0LCJleHAiOjE2NTU5MTIxMjR9.mkTE9cdGQg572Q_ML6XZA-SZjvUb64FcUN3dH-tODJA';
+
+    const [categories,setCategories] = useState();
+    useEffect(() => {
+        const getCategories = async () =>{
+            const response = await axios
+            .post('http://localhost:8000/categorieReq/getAllCategorie.php',
+            {key:'value'},
+            {headers:{Authorization: `Bearer ${token}`}})
+            setCategories(response.data)
+        }
+        getCategories();
+    },[])
 
     if (menuCategorieState.open===true){
         return (
-            <div>
-                {CategoriesTab.map( CategoriesTab =>
+            <>
+                {categories?.map( categorie =>
                     <div className='Card'>
                         <div className='CardImage'>
                             <img src={File} />
                         </div>
                         <div className='CardTitle'>
-                            <p key={CategoriesTab.id}>{CategoriesTab.name}</p>
+                            <p key={categorie.id}>{categorie.nom}</p>
                         </div>
                     </div>
                 )}
-            </div>
+            </>
         )
     }
     else{
         return(
             <ul>
-                {CategoriesTab.map( CategoriesTab => 
-                    <li key={CategoriesTab.id}>{CategoriesTab.name}</li>
+                {categories?.map(categorie =>
+                    {return <li>{categorie.nom}</li>}
                 )}
             </ul>
         )
