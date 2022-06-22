@@ -18,7 +18,7 @@ function getArticleById(int $id) : array{
 
 function getArticleByCategorie(int $categorie) : array {
     $pdoConnexion = creerConnection();
-    $req = $pdoConnexion->prepare("SELECT * FROM article WHERE categorie=:categorie ORDER BY nom ASC");
+    $req = $pdoConnexion->prepare("SELECT * FROM article WHERE categorie=:categorie ORDER BY favori DESC ,nom ASC");
     $req -> bindParam(":categorie",$categorie, PDO::PARAM_INT);
     $req->execute();
     return $req->fetchAll(PDO::FETCH_ASSOC);
@@ -67,6 +67,14 @@ function findArticle($research) {
 function getAllArticleFavorie(){
     $pdoConnexion = creerConnection();
     $req = $pdoConnexion->prepare("SELECT * FROM article ORDER BY favori DESC, nom ASC");
+    $req->execute();
+    return $req->fetchAll(PDO::FETCH_ASSOC);
+}
+
+function getAllArticleByEntreprise($entreprise){
+    $pdoConnexion = creerConnection();
+    $req = $pdoConnexion->prepare("SELECT * FROM article WHERE categorie IN ( SELECT id FROM categorie WHERE entreprise=:entreprise) ORDER BY favori DESC ,nom ASC");
+    $req -> bindParam(":entreprise",$entreprise, PDO::PARAM_INT);
     $req->execute();
     return $req->fetchAll(PDO::FETCH_ASSOC);
 }
