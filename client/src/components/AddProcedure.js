@@ -4,6 +4,7 @@ import Editor from './Editor';
 import ValidateButton from './ValidateButton';
 import CancelButton from './CancelButton';
 import ChooseCategorie from './ChooseCategorie';
+import Close from '../image/close.svg';
 
 const AddProcedure = () => {
     const [modalProcedureState, modalProcedureDispatch] = useContext(ModalProcedureContext);
@@ -20,6 +21,7 @@ const AddProcedure = () => {
                             <ValidateButton />
                             <CancelButton />
                         </div>
+                        <img src={Close} onClick={()=>{showProcedureDispatch({type: 'click',payload: null})}}></img>
                     </div>
                     <div className='ModalBody'>
                         <div className='Editor'>

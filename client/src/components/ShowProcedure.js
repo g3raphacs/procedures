@@ -1,5 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { ShowProcedureContext } from '../store/ShowProcedureStore';
+import Close from '../image/close.svg';
 import axios from 'axios';
 
 const ShowProcedure = () => {
@@ -26,6 +27,7 @@ const ShowProcedure = () => {
                     <div className='ModalProcedure'>
                         <div className='ModalHeaderProcedure'>
                             <h1>{showProcedureState.nom}</h1>
+                            <img src={Close} onClick={()=>{showProcedureDispatch({type: 'click',payload: null})}}></img>
                         </div>
                         <div className='ModalBodyProcedure'>
                             <p>{showProcedureState.texte}</p>
