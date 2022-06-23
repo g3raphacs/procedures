@@ -1,10 +1,11 @@
 import React from 'react';
+import Valider from '../image/check.svg';
 
 const ValidateButton = () => {
     return (
         <div>
             <div className='ValidateButton'>
-                <button>Valider</button>
+                <img src={Valider}></img>
             </div>
         </div>
     );

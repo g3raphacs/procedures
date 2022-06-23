@@ -19,9 +19,8 @@ const AddProcedure = () => {
                         <ChooseCategorie />
                         <div className='DecisionButton'>
                             <ValidateButton />
-                            <CancelButton />
+                            <img src={Close} onClick={()=>{modalProcedureDispatch({type: 'click',payload: false})}}></img>
                         </div>
-                        <img src={Close} onClick={()=>{modalProcedureDispatch({type: 'click',payload: false})}}></img>
                     </div>
                     <div className='ModalBody'>
                         <div className='Editor'>
