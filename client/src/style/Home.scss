@@ -201,6 +201,32 @@
             position: absolute;
             text-align: center;
             overflow-y: auto;
+            .ModalHeaderProcedure{
+                border-radius:10px;
+                display: flex;
+                width: 80vw;
+                justify-content: space-between;
+                position: fixed;
+                background-color: #EAE6DF;
+                z-index: 1;
+                h1{
+                    margin-left: 45%;
+                }
+                img{
+                    cursor:pointer;
+                    margin-right: 3%;
+                }
+            }
+            .ModalBodyProcedure{
+                margin-top:65px;
+                .Editor{
+                    margin: 2em;
+                    .ck-content{
+                        height: 60vh;
+                    }
+
+                }
+            }
         }
 
     }
@@ -243,6 +269,9 @@
                 position: fixed;
                 background-color: #EAE6DF;
                 z-index: 1;
+                img{
+                    cursor:pointer;
+                }
                 .ChooseCategorie{
                     display: flex;
                     margin-top: 2%;
