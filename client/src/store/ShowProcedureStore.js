@@ -9,7 +9,9 @@ const ShowProcedureReducer = (state, action) => {
         case 'click':
             return{
                 ...state,
-                id: action.payload
+                id: action.id,
+                nom: action.nom,
+                texte: action.texte
             }
             default:
                 return state;

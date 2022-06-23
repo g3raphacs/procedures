@@ -8,7 +8,6 @@ const ShowProcedure = () => {
     const [showProcedureState, showProcedureDispatch] = useContext(ShowProcedureContext);
 
     const [proceduresById,setProceduresById] = useState();
-
     const getProceduresById = async () =>{
         const response = await axios
         .post(query,
@@ -18,18 +17,20 @@ const ShowProcedure = () => {
     }
     getProceduresById();
 
+    console.log(showProcedureState.texte);
+
     if(showProcedureState.id != null){
         return(
-            <div className='ModalWindow'>
-                <div className='ModalBackground' onClick={()=>{showProcedureDispatch({type: 'click',payload: null})}}/>
-                <div className='Modal'>
-                    <div className='ModalHeader'>
-                        <h1>Procédure</h1>
+            <div className='ModalWindowProcedure'>
+                <div className='ModalBackgroundProcedure' onClick={()=>{showProcedureDispatch({type: 'click',payload: null})}}/>
+                    <div className='ModalProcedure'>
+                        <div className='ModalHeaderProcedure'>
+                            <h1>{showProcedureState.nom}</h1>
+                        </div>
+                        <div className='ModalBodyProcedure'>
+                            <p>{showProcedureState.texte}</p>
+                        </div>
                     </div>
-                    <div className='ModalBody'>
-                        
-                    </div>
-                </div>
             </div>
         )
     }

@@ -23,7 +23,7 @@ const Procedure = () => {
     return (
         <div className='Procedure'>
             {procedures?.map( procedure => 
-                <div className='Card' onClick={() => {showProcedureDispatch({type: 'click', payload: procedure.id})}}>
+                <div className='Card' onClick={() => {showProcedureDispatch({type: 'click', id: procedure.id, nom: procedure.nom, texte: procedure.texte})}}>
                     <div className='CardImage'>
                         <img src={File} />
                     </div>
