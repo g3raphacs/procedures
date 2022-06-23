@@ -1,5 +1,7 @@
 import React, { useContext } from 'react';
 import { MenuCategorieContext } from '../store/MenuCategorieStore';
+import RightArrow from '../image/arrowrightempty.svg';
+import LeftArrow from '../image/arrowleftempty.svg';
 
 const PlusButton = () => {
     const [menuCategorieState, menuCategorieDispatch] = useContext(MenuCategorieContext);
@@ -13,7 +15,7 @@ const PlusButton = () => {
 
     return (
         <div className='PlusButton'>
-            <button onClick={handleClick}>{menuCategorieState.open===true?'<':'>'}</button>
+            <button onClick={handleClick}>{menuCategorieState.open===true?<img src={LeftArrow}/>:<img src={RightArrow}/>}</button>
         </div>
     );
 };

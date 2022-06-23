@@ -79,6 +79,11 @@
                     right:-15px;
                     cursor:pointer;
                 }
+                button:hover{
+                    img{
+                        background:url(../image/arrowright.svg)
+                    }
+                }
                 .Categorie{
                     width: 170px;
                 }
@@ -98,6 +103,11 @@
             }
             &.Open{
                 width:80vw;
+                button:hover{
+                    img{
+                        background:url(../image/arrowleft.svg);
+                    }
+                }
                 .Categorie{
                     display:flex;
                     flex-wrap:wrap;
