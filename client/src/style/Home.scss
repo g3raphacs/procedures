@@ -171,6 +171,39 @@
             }
         }
     }
+    .ModalWindowProcedure{
+        top:0;
+        left:0;
+        width:100vw;
+        height:100vh;
+        display:flex;
+        align-items:center;
+        justify-content:center;
+        position:absolute;
+        .ModalBackgroundProcedure{
+            top:0;
+            left:0;
+            width:100vw;
+            height:100vh;
+            position:absolute;
+            background-color:rgba(0, 0, 0, 0.401);
+        }
+        .ModalProcedure{
+            display: flex;
+            flex-direction: column;
+            width: 80vw;
+            height: 80vh;
+            background-color: #EAE6DF;
+            border-style: solid;
+            border-width: 3px;
+            border-radius: 10px;
+            border-color: #aacae9;
+            position: absolute;
+            text-align: center;
+            overflow-y: auto;
+        }
+
+    }
     .ModalWindow{
         top:0;
         left:0;
