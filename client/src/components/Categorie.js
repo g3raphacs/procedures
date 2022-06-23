@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react';
-import File from '../image/procedure.svg';
+import File from '../image/categorie.svg';
 import { MenuCategorieContext } from '../store/MenuCategorieStore';
 import axios from 'axios';
 
