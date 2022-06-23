@@ -21,7 +21,7 @@ const AddProcedure = () => {
                             <ValidateButton />
                             <CancelButton />
                         </div>
-                        <img src={Close} onClick={()=>{showProcedureDispatch({type: 'click',payload: null})}}></img>
+                        <img src={Close} onClick={()=>{modalProcedureDispatch({type: 'click',payload: false})}}></img>
                     </div>
                     <div className='ModalBody'>
                         <div className='Editor'>
