@@ -1,7 +1,9 @@
 import React, { useReducer, createContext } from "react";
 
 const initialState = {
-    id: null
+    id: null,
+    nom: null,
+    texte:null
 };
 
 const ShowProcedureReducer = (state, action) => {

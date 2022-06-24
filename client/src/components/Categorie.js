@@ -1,11 +1,13 @@
 import React, { useContext, useEffect, useState } from 'react';
 import File from '../image/categorie.svg';
 import { MenuCategorieContext } from '../store/MenuCategorieStore';
+import { ChooseCategorieContext } from '../store/ChooseCategorieStore';
 import axios from 'axios';
 
 const Categorie = () => {
     const [menuCategorieState, menuCategorieDispatch] = useContext(MenuCategorieContext);
-    const token = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyIjoidGVzdCBsb2dpbiAyIiwiaWF0IjoxNjU1OTEyNzgyLCJleHAiOjE2NTU5OTkxODJ9.vje_6Z1y0xw8JLOzdvwmJmrZXmKsMHGD8rxOZZjnFKI';
+    const [chooseCategorieState, chooseCategorieDispatch] = useContext(ChooseCategorieContext);
+    const token = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyIjoidGVzdCBsb2dpbiAyIiwiaWF0IjoxNjU2MDU0MTgxLCJleHAiOjE2NTYxNDA1ODF9.CCUBNOJaljXYogPko6fmk8QshobDbAtiu5y6ssjMXlM';
 
     const [categories,setCategories] = useState();
     useEffect(() => {
@@ -39,7 +41,7 @@ const Categorie = () => {
         return(
             <ul>
                 {categories?.map(categorie =>
-                    {return <li>{categorie.nom}</li>}
+                    {return <li onClick={() => {chooseCategorieDispatch({type: 'click', click:true})}}>{categorie.nom}</li>}
                 )}
             </ul>
         )
