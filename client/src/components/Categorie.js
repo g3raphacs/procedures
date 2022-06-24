@@ -24,7 +24,7 @@ const Categorie = () => {
     if (menuCategorieState.open===true){
         return (
             <>
-                {/* {categories?.map( categorie =>
+                {categories?.map( categorie =>
                     <div className='Card' onClick={() => {chooseCategorieDispatch({type: 'click', payload: categorie.id})}}>
                         <div className='CardImage'>
                             <img src={File} />
@@ -33,7 +33,7 @@ const Categorie = () => {
                             <p key={categorie.id}>{categorie.nom}</p>
                         </div>
                     </div>
-                )} */}
+                )}
             </>
         )
     }
