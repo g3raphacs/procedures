@@ -5,12 +5,19 @@
     background-color:#EAE6DF;
     color:black;
     .TopMenu{
+        @media screen and (max-width:640px){
+            margin-top: 15vh;
+        }
         position:fixed;
         width:100vw;
-        height: 40px;
+        height: 10vh;
         display:flex;
         justify-content: space-around;
+        align-items: center;
         .ResearchBar{
+            @media screen and (max-width:640px){
+                margin-left: 10px;
+            }
             display: flex;
             border-radius:4px;
             text-align:center;
@@ -36,15 +43,29 @@
         }
     }
     .Content{
+        @media screen and (max-width: 640px){
+            justify-content: center;
+        }
         display:flex;
         .LeftBackground{
+            @media screen and (max-width: 640px){
+                top:0;
+                left:0;
+                width:100vw;
+                height:0;
+                position:absolute;
+                transition:height 0ms ease-in-out 500ms,background-color 500ms ease-in-out;
+            }
             top:0;
             left:0;
-            width:0vw;
+            width:0;
             height:100vh;
             position:absolute;
             transition:width 0ms ease-in-out 500ms,background-color 500ms ease-in-out;
             &.Open{
+                @media screen and (max-width:640px){
+                    height:100vh;
+                }
                 transition:background-color 500ms ease-in-out;
                 width:100vw;
                 height:100vh;
@@ -52,7 +73,16 @@
             }
         }
         .LeftMenu{
-            transition: width 500ms ease-in-out;
+            @media screen and (max-width:640px){
+                position:absolute;
+                background-color:#aacae9;
+                width:100vw;
+                height:15vh;
+                min-height: 100px;
+                margin-left:0;
+                min-width: 200px;
+            }
+            transition: width 500ms ease-in-out, height 500ms ease-in-out;
             position:absolute;
             background-color:#aacae9;
             height:100vh;
@@ -60,18 +90,29 @@
             min-width: 200px;
             margin-left:3%;
             .LeftContent{
+                @media screen and (max-width:640px){
+                    margin-top: 0;
+                    display:flex;
+                    flex-direction: row;
+                    align-items:center;
+                }
                 margin-top:calc(10vh + 25px);
                 display:flex;
                 flex-direction:column;
                 align-items:center;
                 button{
+                    @media screen and (max-width:640px){
+                        top: 13vh;
+                        right:15px;
+                    }
                     position:absolute;
                     width:5vw;
+                    min-width: 30px;
                     background-color:#f26100;
                     color:#F2ECE4;
                     border-radius:4px;
                     border:none;
-                    font-size:0px;
+                    font-size:0;
                     padding: 3px;
                     text-decoration:none;
                     font-weight:bold;
@@ -103,6 +144,8 @@
             }
             &.Open{
                 width:80vw;
+                height: 100vh;
+                transition: width 500ms ease-in-out, height 500ms ease-in-out;
                 button:hover{
                     img{
                         background:url(../image/arrowleft.svg);
@@ -143,11 +186,18 @@
             }
         }
         .RightMenu{
+            @media screen and (max-width: 640px){
+                margin-top: 15vh;
+                margin-left: 0;
+            }
             width:calc(100vw - (15vw + 3%));
             margin-left:25vw;
             .RightContent{
                 margin-top:calc(10vh + 25px);
                 .Procedure{
+                    @media screen and (max-width: 640px){
+                        height: 65vh;
+                    }
                     display:flex;
                     flex-wrap:wrap;
                     justify-content: space-around;
@@ -161,6 +211,7 @@
                         margin: 2%;
                         display: flex;
                         cursor:pointer;
+                        align-items: center;
                         .CardImage{
                             text-align:center;
                             img{
@@ -219,22 +270,42 @@
                 position: fixed;
                 background-color: #EAE6DF;
                 z-index: 1;
+                align-items: center;
                 h1{
+                    @media screen and (max-width: 800px) {
+                        margin-left: 3%;
+                        font-size: 1.2em;
+                    }
                     margin-left: 3%;
+                    font-size: 1.5em;
                 }
                 img{
                     cursor:pointer;
+                    width : 4vw;
+                    height : 4vh;
+                    min-width: 20px;
+                    min-height: 20px;
+                    padding-right: 5px;
+                    padding-left: 5px;
                     margin-right: 3%;
+                    margin-top: 5px;
                 }
             }
             .ModalBodyProcedure{
-                margin-top:65px;
-                .Editor{
-                    margin: 2em;
-                    .ck-content{
-                        height: 60vh;
-                    }
-
+                @media screen and (max-width: 1100px) {
+                    margin-top: 8vh;
+                }
+                @media screen and (max-width: 800px) {
+                    margin-top: 9vh;
+                }
+                @media screen and (max-width: 640px) {
+                    margin-top: 11.5vh;
+                }
+                margin-top: 5vh;
+                overflow: auto;
+                p{
+                    margin: 1em;
+                    text-align: justify;
                 }
             }
         }
@@ -259,6 +330,10 @@
             background-color:rgba(0, 0, 0, 0.401);
         }
         .Modal{
+            @media screen and (max-width: 640px){
+                width:90vw;
+                height:90vh;
+            }
             display: flex;
             flex-direction: column;
             width:80vw;
@@ -272,6 +347,10 @@
             text-align:center;
             overflow-y: auto;
             .ModalHeader{
+                @media screen and (max-width: 640px){
+                    height: 6vh;
+                    width: 90vw;
+                }
                 border-radius:10px;
                 display: flex;
                 width: 80vw;
@@ -280,17 +359,29 @@
                 height: 9vh;
                 background-color: #EAE6DF;
                 z-index: 1;
+                align-items: center;
                 h1{
+                    @media screen and (max-width: 640px){
+                        font-size: 15px;
+                        padding: 5px;
+                    }
                     font-size: 2.5vw;
-                    line-height: 40px;
+                    padding: 10px;
                 }
                 img{
                     cursor:pointer;
+                    width : 5vw;
+                    height : 5vh;
+                    min-width: 20px;
+                    min-height: 20px;
+                    padding-right: 10px;
+                    padding-left: 10px;
                 }
                 .ChooseCategorie{
                     display: flex;
                     align-items: center;
                     justify-content: center;
+                    padding-right: 5px;
                     select{
                         display: flex;
                         height: 30px;
@@ -301,28 +392,24 @@
                 }
                 .DecisionButton{
                     display: flex;
+                    align-items: center;
                     .ValidateButton{
                         display: flex;
-                        margin-right: 30%;
-                    }
-                    button{
-                        background-color:#F26100;
-                        color:#F2ECE4;
-                        border-radius:4px;
-                        border:none;
-                        font-size:17px;
-                        padding: 6px;
-                        text-decoration:none;
-                        cursor:pointer;
-                        font-weight:bold;
+                        justify-content: center;
                     }
                 }
             }
             .ModalBody{
+                @media screen and (max-width: 640px){
+                    margin-top: 4vh;
+                }
                 margin-top: 7vh;
                 .Editor{
                     margin: 2em;
                     .ck-content{
+                        @media screen and (max-width: 640px){
+                            height: 73vh;
+                        }
                         height: 60vh;
                     }
 
