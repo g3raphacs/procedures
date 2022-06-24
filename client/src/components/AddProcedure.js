@@ -2,7 +2,6 @@ import React, { useContext } from 'react';
 import { ModalProcedureContext } from '../store/ModalProcedureStore';
 import Editor from './Editor';
 import ValidateButton from './ValidateButton';
-import CancelButton from './CancelButton';
 import ChooseCategorie from './ChooseCategorie';
 import Close from '../image/close.svg';
 

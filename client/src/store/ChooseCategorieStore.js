@@ -1,7 +1,7 @@
 import React, { useReducer, createContext } from 'react';
 
 const initialState = {
-    tri: false
+    tri: 0
 };
 
 const ChooseCategorieReducer = (state, action) => {

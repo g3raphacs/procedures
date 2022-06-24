@@ -4,21 +4,24 @@ import Home from './pages/Home';
 import MenuCategorieContext from './store/MenuCategorieStore';
 import ModalProcedureContext from './store/ModalProcedureStore';
 import ShowProcedureContext from './store/ShowProcedureStore';
+import ChooseCategorieContext from './store/ChooseCategorieStore';
 
 const App = () => {
   return (
-    <ShowProcedureContext>
-      <ModalProcedureContext>
-        <MenuCategorieContext>
-          <BrowserRouter>
-            <Routes>
-              <Route path="/" element={<Home />} />
-              <Route path="*" element={<Home />} />
-            </Routes>
-          </BrowserRouter>
-        </MenuCategorieContext>
-      </ModalProcedureContext>
-    </ShowProcedureContext>
+    <ChooseCategorieContext>
+      <ShowProcedureContext>
+        <ModalProcedureContext>
+          <MenuCategorieContext>
+            <BrowserRouter>
+              <Routes>
+                <Route path="/" element={<Home />} />
+                <Route path="*" element={<Home />} />
+              </Routes>
+            </BrowserRouter>
+          </MenuCategorieContext>
+        </ModalProcedureContext>
+      </ShowProcedureContext>
+    </ChooseCategorieContext>
   );
 };
 

@@ -24,8 +24,8 @@ const Categorie = () => {
     if (menuCategorieState.open===true){
         return (
             <>
-                {categories?.map( categorie =>
-                    <div className='Card'>
+                {/* {categories?.map( categorie =>
+                    <div className='Card' onClick={() => {chooseCategorieDispatch({type: 'click', payload: categorie.id})}}>
                         <div className='CardImage'>
                             <img src={File} />
                         </div>
@@ -33,7 +33,7 @@ const Categorie = () => {
                             <p key={categorie.id}>{categorie.nom}</p>
                         </div>
                     </div>
-                )}
+                )} */}
             </>
         )
     }
@@ -41,7 +41,7 @@ const Categorie = () => {
         return(
             <ul>
                 {categories?.map(categorie =>
-                    {return <li onClick={() => {chooseCategorieDispatch({type: 'click', click:true})}}>{categorie.nom}</li>}
+                    {return <li onClick={() => {chooseCategorieDispatch({type: 'click', payload: categorie.id})}}>{categorie.nom}</li>}
                 )}
             </ul>
         )
