@@ -1,24 +1,17 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { ShowProcedureContext } from '../store/ShowProcedureStore';
 import Close from '../image/close.svg';
+import query from '../utils/query';
 import axios from 'axios';
 
 const ShowProcedure = () => {
-    const token = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyIjoidGVzdCBsb2dpbiAyIiwiaWF0IjoxNjU1OTEyNzgyLCJleHAiOjE2NTU5OTkxODJ9.vje_6Z1y0xw8JLOzdvwmJmrZXmKsMHGD8rxOZZjnFKI';
-    const query = 'http://localhost:8000/articleReq/getArticleById.php'
     const [showProcedureState, showProcedureDispatch] = useContext(ShowProcedureContext);
 
     const [proceduresById,setProceduresById] = useState();
-    const getProceduresById = async () =>{
-        const response = await axios
-        .post(query,
-        {id:showProcedureState.id},
-        {headers:{Authorization: `Bearer ${token}`}})
-        setProceduresById(response.data)
-    }
-    getProceduresById();
-
-    console.log(showProcedureState.texte);
+    useEffect(() => {
+        const procedures = query.article(showProcedureState.id);
+        setProceduresById(procedures);
+    },[])
 
     if(showProcedureState.id != null){
         return(
