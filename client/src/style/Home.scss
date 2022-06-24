@@ -81,7 +81,7 @@
                 }
                 button:hover{
                     img{
-                        background:url('../image/arrowright.svg') no-repeat;
+                        background:url(../image/arrowright.svg)
                     }
                 }
                 .Categorie{
@@ -214,7 +214,6 @@
             .ModalHeaderProcedure{
                 border-radius:10px;
                 display: flex;
-                align-items:center;
                 width: 80vw;
                 justify-content: space-between;
                 position: fixed;
@@ -226,7 +225,6 @@
                 img{
                     cursor:pointer;
                     margin-right: 3%;
-                    height:40px;
                 }
             }
             .ModalBodyProcedure{
@@ -302,15 +300,20 @@
                 }
                 .DecisionButton{
                     display: flex;
-                    align-items:center;
-                    margin-right:-50px;
-                    
-                    img{
-                        height:40px;
-                    }
                     .ValidateButton{
-                        margin-right:20px;
-                    } 
+                        display: flex;
+                    }
+                    button{
+                        background-color:#F26100;
+                        color:#F2ECE4;
+                        border-radius:4px;
+                        border:none;
+                        font-size:17px;
+                        padding: 6px;
+                        text-decoration:none;
+                        cursor:pointer;
+                        font-weight:bold;
+                    }
                 }
             }
             .ModalBody{
