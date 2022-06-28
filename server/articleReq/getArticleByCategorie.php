@@ -10,6 +10,5 @@ $getArticleByCategorie = json_decode($_POST['categorie'], true);
 if (categorieExists($getArticleByCategorie['categorie'])){
     echo json_encode(getArticleByCategorie($getArticleByCategorie['categorie']));
 } else {
-    echo json_encode(['message' => 'catégorie non existante', 'erreur' => true]);
+    echo json_encode(getAllArticle());
 }
-

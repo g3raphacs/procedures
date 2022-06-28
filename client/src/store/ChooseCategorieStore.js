@@ -1,7 +1,7 @@
 import React, { useReducer, createContext } from 'react';
 
 const initialState = {
-    tri: 0
+    categorie: null
 };
 
 const ChooseCategorieReducer = (state, action) => {
@@ -9,7 +9,7 @@ const ChooseCategorieReducer = (state, action) => {
         case 'click':
             return{
                 ...state,
-                tri: action.payload
+                categorie: action.payload
             }
             default:
                 return state;

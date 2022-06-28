@@ -7,7 +7,7 @@ import axios from 'axios';
 const Categorie = () => {
     const [menuCategorieState, menuCategorieDispatch] = useContext(MenuCategorieContext);
     const [chooseCategorieState, chooseCategorieDispatch] = useContext(ChooseCategorieContext);
-    const token = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyIjoidGVzdCBsb2dpbiAyIiwiaWF0IjoxNjU2MDU0MTgxLCJleHAiOjE2NTYxNDA1ODF9.CCUBNOJaljXYogPko6fmk8QshobDbAtiu5y6ssjMXlM';
+    const token = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyIjoiYWxleGlzIiwiaWF0IjoxNjU2MzMyNzkyLCJleHAiOjE2NTY0MTkxOTJ9.MhxEoTYAf066L_RRHdGUBThzEEytDDnUzKAFrQ4Cd7Q';
 
     const [categories,setCategories] = useState();
     useEffect(() => {
