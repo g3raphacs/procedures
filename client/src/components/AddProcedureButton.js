@@ -1,8 +1,8 @@
 import React from 'react';
 
-const AddProcedureButton = () => {
+const AddProcedureButton = ({toggleView}) => {
     return (
-        <button>Ajouter Procedure</button>
+        <button onClick={()=>{toggleView(true)}}>Ajouter Procedure</button>
     );
 };
 

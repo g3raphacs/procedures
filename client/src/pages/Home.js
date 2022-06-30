@@ -5,6 +5,7 @@ import Categorie from '../components/Categorie';
 import Procedure from '../components/Procedure';
 import ShowProcedure from '../components/ShowProcedure';
 import AddProcedureButton from '../components/AddProcedureButton';
+import AddProcedure from '../components/AddProcedure';
 import { MenuCategorieContext } from '../store/MenuCategorieStore';
 import '../style/Home.scss';
 
@@ -12,15 +13,15 @@ const Home = () => {
     const [menuCategorieState, menuCategorieDispatch] = useContext(MenuCategorieContext);
 
     const [toggle,setToggle] = useState(false);
+    const [toggleAddProcedure,setToggleAddProcedure] = useState(false);
     const [selectedProcedure,setSelectedProcedure] = useState({});
 
     return (
         <div className='Home'>
             <div className='TopMenu'>
                 <Research />
-                <AddProcedureButton />
+                <AddProcedureButton toggleView={(open)=>{setToggleAddProcedure(open)}}/>
             </div>
-
             <div className='Content'>
                 <div className={menuCategorieState.open===true?'LeftBackground Open':'LeftBackground'} onClick={()=>{menuCategorieDispatch({type: 'click',payload: false})}}/>
                 <div className={menuCategorieState.open===true?'LeftMenu Open':'LeftMenu'}>
@@ -38,6 +39,7 @@ const Home = () => {
                 </div>
             </div>
             <ShowProcedure toggle={toggle} toggleView={(param) => {setToggle(param)}} procedure={selectedProcedure}/>
+            <AddProcedure toggle={toggleAddProcedure} toggleView={(param) => {setToggleAddProcedure(param)}}/>
         </div>
     );
 };

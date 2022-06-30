@@ -4,20 +4,18 @@ import ValidateButton from './ValidateButton';
 import ChooseCategorie from './ChooseCategorie';
 import Close from '../image/close.svg';
 
-const AddProcedure = () => {
-    const [modalProcedureState, modalProcedureDispatch] = useContext(ModalProcedureContext);
-    
-    if(modalProcedureState.open===true){
+const AddProcedure = (props) => {
+    if(props.toggle === true){
         return (
             <div className='ModalWindow'>
-                <div className='ModalBackground' onClick={()=>{modalProcedureDispatch({type: 'click',payload: false})}}/>
+                <div className='ModalBackground' onClick={() => {props.toggleView(false)}}/>
                 <div className='Modal'>
                     <div className='ModalHeader'>
                         <h1>Ajouter une nouvelle procédure</h1>
                         <ChooseCategorie />
                         <div className='DecisionButton'>
                             <ValidateButton />
-                            <img src={Close} onClick={()=>{modalProcedureDispatch({type: 'click',payload: false})}}></img>
+                            <img src={Close} onClick={() => {props.toggleView(false)}}></img>
                         </div>
                     </div>
                     <div className='ModalBody'>
