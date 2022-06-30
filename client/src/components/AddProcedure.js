@@ -1,5 +1,4 @@
 import React, { useContext } from 'react';
-import { ModalProcedureContext } from '../store/ModalProcedureStore';
 import Editor from './Editor';
 import ValidateButton from './ValidateButton';
 import ChooseCategorie from './ChooseCategorie';

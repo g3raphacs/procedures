@@ -79,10 +79,10 @@ function getAllArticleByEntreprise($entreprise){
     return $req->fetchAll(PDO::FETCH_ASSOC);
 }
 
-function getArticleByNom($nom){
+function getAllArticleByNom($nom){
     $pdoConnexion = creerConnection();
-    $req = $pdoConnexion->prepare("SELECT * FROM article WHERE nom=:nom ORDER BY favori DESC ,nom ASC");
-    $req -> bindParam(":nom",$nom, PDO::PARAM_INT);
+    $req = $pdoConnexion->prepare("SELECT * FROM article WHERE nom LIKE :nom ORDER BY favori DESC ,nom ASC");
+    $req -> bindParam(":nom",$nom, PDO::PARAM_STR);
     $req->execute();
     return $req->fetchAll(PDO::FETCH_ASSOC);
 }

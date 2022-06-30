@@ -1,18 +1,8 @@
-import React, { useContext } from 'react';
-import { ModalProcedureContext } from '../store/ModalProcedureStore';
+import React from 'react';
 
 const AddProcedureButton = () => {
-    const [modalProcedureState, modalProcedureDispatch] = useContext(ModalProcedureContext);
-
-    function handleClick(){
-        modalProcedureDispatch({
-            type: 'click',
-            payload: !modalProcedureState.open
-        });
-    }
-
     return (
-        <button onClick={handleClick}>Ajouter Procedure</button>
+        <button>Ajouter Procedure</button>
     );
 };
 

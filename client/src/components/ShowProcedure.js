@@ -1,34 +1,25 @@
-import React, { useContext, useEffect, useState } from 'react';
-import { ShowProcedureContext } from '../store/ShowProcedureStore';
+import React, { useContext } from 'react';
 import Close from '../image/close.svg';
-import query from '../utils/query';
-import axios from 'axios';
+import { ProcedureContext } from '../store/ProcedureStore';
 
-const ShowProcedure = () => {
-    const [showProcedureState, showProcedureDispatch] = useContext(ShowProcedureContext);
-
-    const [proceduresById,setProceduresById] = useState();
-    useEffect(() => {
-        const procedures = query.article(showProcedureState.id);
-        setProceduresById(procedures);
-    },[])
-
-    if(showProcedureState.id != null){
+const ShowProcedure = (props) => {
+    if(props.toggle === true){
         return(
             <div className='ModalWindowProcedure'>
-                <div className='ModalBackgroundProcedure' onClick={()=>{showProcedureDispatch({type: 'click',payload: null})}}/>
+                <div className='ModalBackgroundProcedure' onClick={() => {props.toggleView(false)}}/>
                     <div className='ModalProcedure'>
                         <div className='ModalHeaderProcedure'>
-                            <h1>{showProcedureState.nom}</h1>
-                            <img src={Close} onClick={()=>{showProcedureDispatch({type: 'click',payload: null})}}></img>
+                            <h1>{props.procedure.nom}</h1>
+                            <img src={Close} onClick={() => {props.toggleView(false)}}></img>
                         </div>
                         <div className='ModalBodyProcedure'>
-                            <p>{showProcedureState.texte}</p>
+                            <p>{props.procedure.texte}</p>
                         </div>
                     </div>
             </div>
         )
     }
+    return null;
 }
 
 export default ShowProcedure;
